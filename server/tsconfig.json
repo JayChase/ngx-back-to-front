@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs"
+    },
+    "sourceMap": false,
+    "strict": true   ,
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "include": [
+      "**/*.ts"
+    ],
+    "exclude": [
+      "test.ts",
+      "**/*.spec.ts"
+    ]
+  }
