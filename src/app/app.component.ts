@@ -1,8 +1,6 @@
 import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestService } from './test.service';
-import { StateService } from './back-to-front/state.service';
-import './back-to-front/operator';
 
 @Component({
   selector: 'app-root',
@@ -12,28 +10,23 @@ import './back-to-front/operator';
 export class AppComponent implements OnInit {
   renderLocation: string;
   message: string;
+  photo: any;
 
   constructor(
     @Inject(PLATFORM_ID) public platform_id,
-    private testService: TestService,
-    private stateService: StateService
+    private testService: TestService
   ) {
   }
 
   ngOnInit() {
     this.renderLocation = this.platform_id;
 
-    this.testService.test()
-    .backToFront()
+    this.testService.getPhoto(1)
+      .backToFront()
       .subscribe(result => {
-        this.message = <any> result;
+        this.photo = result;
+      }, error => {
+        console.log(error);
       });
-    //  .backToFront();
-
-    this.stateService.set('test', { 'a': '1' });
-
-    const fromServer = this.stateService.get('test');
-    this.message = JSON.stringify(fromServer);
-    console.log(fromServer);
   }
 }

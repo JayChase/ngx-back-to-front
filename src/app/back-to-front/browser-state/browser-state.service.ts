@@ -2,14 +2,15 @@ import { Injectable, RendererFactory2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { StateService } from '../state.service';
 import { PlatformState } from '@angular/platform-server';
-
+import { UniversalService } from '../universal.service';
 
 @Injectable()
 export class BrowserStateService extends StateService {
 
   constructor(
+    universalService: UniversalService
   ) {
-    super();
+    super(universalService);
   }
 
   get(key: string, persist?: boolean): string {

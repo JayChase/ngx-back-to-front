@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TestService } from './test.service';
@@ -9,7 +10,8 @@ import { TestService } from './test.service';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'my-app' })
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    HttpClientModule
   ],
   providers: [
     TestService

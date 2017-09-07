@@ -1,22 +1,45 @@
 import { Injectable } from '@angular/core';
+import { UniversalService } from './universal.service';
+
 import { Observable } from 'rxjs/rx';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export abstract class StateService {
 
-  constructor() {
-    Observable.prototype['backToFront'] = this.exportToJson();
+  constructor(
+    private universalService: UniversalService
+  ) {
+    Observable.prototype['backToFront'] = this.backToFrontOperator();
   }
 
   abstract get(key: string): string;
   abstract set(key: string, value: any): void;
 
-  exportToJson<T>(): () => Observable<T> {
+  backToFrontOperator<T>(): () => Observable<T> {
     const stateService = this;
 
-    return function() {
+    return function () {
       const ss = stateService;
-      return (<any>this);
+
+      if (!ss.universalService.isBrowser()) {
+        return this.map((result) => {
+          ss.set('test', result);
+          return result;
+        });
+      } else {
+        return this;
+      }
+
+      // this needs to go in the interceptor
+      // const state = ss.get(key);
+
+      // if (state) {
+      //   return Observable.of(state);
+      // } else {
+      //   return (<any>this);
+      // }
     };
   }
 }
