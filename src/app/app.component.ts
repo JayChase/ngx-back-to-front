@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
     this.renderLocation = this.platform_id;
 
     this.testService.getPhoto(1)
-      .backToFront()
       .subscribe(result => {
         this.photo = result;
       }, error => {
