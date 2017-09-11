@@ -6,6 +6,7 @@
 /tmp
 /out-tsc
 /server/*.js
+/lib
 
 # dependencies
 /node_modules

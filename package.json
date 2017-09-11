@@ -2,6 +2,11 @@
   "name": "ngx-back-to-front",
   "version": "1.0.0-alpha",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "npm run serve-node",
@@ -15,7 +20,10 @@
     "build-dist": "ng build --prod",
     "build-all": "npm run build-dist && npm run build-uni && npm run build-set-server-main-bundle && npm run build-server",
     "serve": "ng serve --delete-output-path=false",
-    "serve-node": "node server/server"
+    "serve-node": "node server/server",
+    "ngc-build": "ngc -p ./tsconfig.lib.json",
+    "clear-lib": "rimraf ./lib",
+    "prepare": "npm run clear-lib && npm ngc-build"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +47,7 @@
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
     "@angular/platform-server": "^4.3.6",
+    "@types/core-js": "^0.9.43",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",

@@ -1,4 +1,4 @@
-import { NgModule, RendererFactory2, PLATFORM_ID, Inject } from '@angular/core';
+import { NgModule, RendererFactory2, PLATFORM_ID, Inject, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,7 +17,7 @@ import { ServerStateInterceptor } from './server-interceptor/server-state.interc
   declarations: []
 })
 export class BackToFrontServerModule {
-  static forRoot() {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: BackToFrontServerModule,
       providers: [

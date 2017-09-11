@@ -11,7 +11,7 @@ export class UniversalService {
   currentRoute: string;
 
   constructor(
-    @Inject(PLATFORM_ID) public platform_id,
+    @Inject(PLATFORM_ID) public platform_id: any,
     private router: Router
   ) {
     router.events
