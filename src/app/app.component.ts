@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
     this.testService.getPhoto(1)
       .subscribe(result => {
         this.photo = result;
+
       }, error => {
         console.log(error);
       });

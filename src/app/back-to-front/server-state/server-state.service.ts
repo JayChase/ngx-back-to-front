@@ -1,7 +1,6 @@
 import { Injectable, RendererFactory2, ViewEncapsulation } from '@angular/core';
 import { PlatformState } from '@angular/platform-server';
 import { StateService } from '../state.service';
-import { UniversalService } from '../universal.service';
 
 import * as serialize from 'serialize-javascript';
 
@@ -10,14 +9,13 @@ export class ServerStateService extends StateService {
 
   constructor(
     private rendererFactory: RendererFactory2,
-    private platformState: PlatformState,
-    universalService: UniversalService
+    private platformState: PlatformState
   ) {
-    super(universalService);
-
+    super();
   }
 
   get(key: string, persist?: boolean): string | undefined {
+    console.log('State will never be available on server side. Use UniversalService.isBrowser() to check whether running on client or server');
     return undefined;
   }
 
@@ -36,10 +34,7 @@ export class ServerStateService extends StateService {
     }
 
     const script = renderer.createElement('script');
-    // console.log('key ' +  key);
-    // console.log('transferStateString ' +  transferStateString);
     renderer.setValue(script, `if(!window.state){ window.state = {}}; window.state['${key}'] = ${transferStateString}`);
     renderer.appendChild(document.head, script);
-
   }
 }

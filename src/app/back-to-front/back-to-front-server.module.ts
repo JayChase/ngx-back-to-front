@@ -35,8 +35,3 @@ export class BackToFrontServerModule {
     };
   }
 }
-
-
-// export function stateServiceFactory(universalService: UniversalService, rendererFactory2: RendererFactory2, platformState: PlatformState) {
-//   return universalService.isBrowser() ? new BrowserStateService(rendererFactory2, platformState) : new ServerStateService(rendererFactory2, platformState);
-// }

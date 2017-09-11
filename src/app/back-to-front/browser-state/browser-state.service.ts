@@ -1,16 +1,11 @@
-import { Injectable, RendererFactory2, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, Inject } from '@angular/core';
 import { StateService } from '../state.service';
-import { PlatformState } from '@angular/platform-server';
-import { UniversalService } from '../universal.service';
 
 @Injectable()
 export class BrowserStateService extends StateService {
 
-  constructor(
-    universalService: UniversalService
-  ) {
-    super(universalService);
+  constructor() {
+    super();
   }
 
   get(key: string, persist?: boolean): string {
@@ -28,6 +23,7 @@ export class BrowserStateService extends StateService {
   }
 
   set(key: string, value: any) {
+    console.log('State cannot be set on the browser side. Use UniversalService.isBrowser() to check whether running on client or server');
     // throw new Error('state cannot be set on the browser side');
   }
 

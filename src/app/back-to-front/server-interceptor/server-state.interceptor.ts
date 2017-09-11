@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/rx';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 import { StateService } from '../state.service';
 
 @Injectable()
@@ -20,12 +21,11 @@ export class ServerStateInterceptor implements HttpInterceptor {
 
         return next.handle(req)
             .do(event => {
-                console.log('event');
                 if (event instanceof HttpResponse && event.ok) {
-                    console.log('settings ' + event.body);
                     this.stateService.set(req.urlWithParams, event.body);
-                    // this.stateService.set('upsy', 'daisy');
                 }
+                return event;
             });
+
     }
 }
