@@ -15,7 +15,7 @@ export class TestService {
     return this.httpClient.get('https://jsonplaceholder.typicode.com/photos/' + id);
   }
 
-  test(): Observable<string> {
-    return Observable.of('test').delay(1000);
+  slowResponse(delay: number): Observable<string> {
+    return Observable.of('test').delay(delay);
   }
 }

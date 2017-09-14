@@ -22,9 +22,6 @@
     "exclude": [
         "./src/app/back-to-front/**/*.spec.ts"
     ],
-    "files": [
-        "./node_modules/@types/core-js/index.d.ts"
-    ],
     "angularCompilerOptions": {
         "skipTemplateCodegen": true
     }

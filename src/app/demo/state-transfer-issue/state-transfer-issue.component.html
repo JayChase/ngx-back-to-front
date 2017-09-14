@@ -1,0 +1,6 @@
+<div class="container">
+    <h2>state transfer issue</h2>
+    <p>If the component displays data from an API request there will be a delay whilst the request is made again on the client side.</p>
+    <p>photo: {{photo | json}}</p>
+    <img *ngIf="photo" [src]="photo.url" alt="">    
+</div>
