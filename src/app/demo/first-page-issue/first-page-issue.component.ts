@@ -16,8 +16,9 @@ export class FirstPageIssueComponent implements OnInit {
   ngOnInit() {
     this.busy = true;
 
-    this.testService.slowResponse(2000)
+    this.testService.slowResponse(4000)
       .subscribe(result => {
+        this.busy = false;
         console.log(result);
       }, error => {
         console.log(error);

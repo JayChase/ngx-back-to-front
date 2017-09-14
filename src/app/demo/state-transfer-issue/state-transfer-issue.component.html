@@ -1,6 +1,15 @@
-<div class="container">
-    <h2>state transfer issue</h2>
-    <p>If the component displays data from an API request there will be a delay whilst the request is made again on the client side.</p>
-    <p>photo: {{photo | json}}</p>
-    <img *ngIf="photo" [src]="photo.url" alt="">    
-</div>
+<md-card>
+    <md-card-title>state transfer issue</md-card-title>
+    <md-card-content>
+        <p>
+            If the component displays data from an API request there will be a delay whilst the request is made again on the client side.
+            reload this page and you will see the photo details flickr. This can be fixed by caching the data on the server
+            and emdedding it in the page, then using the cached data when the client page loads.
+        </p>
+        <p>
+            See the fixed version <a [routerLink]="['/state-transfer-fixed']">state transfer fixed</a>
+        </p>
+        <p>photo: {{photo | json}}</p>
+        <img *ngIf="photo" [src]="photo.url" alt="">
+    </md-card-content>
+</md-card>

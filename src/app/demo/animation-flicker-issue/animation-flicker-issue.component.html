@@ -1,4 +1,10 @@
-<div class="container" [@fade]="'in'">
-    <h2>animation flicker issue</h2>
-    <p>If the component has an animated fade in when it loads that animtation will run when transitions from server rendered to client.</p>
-</div>
+<md-card [@fade]="'in'">
+    <md-card-title>animation flicker issue</md-card-title>
+    <md-card-content>
+        <p>If the component has an animated fade in when it loads that animtation will run when transitions from server rendered to client.
+        </p>
+        <p>
+            See the fixed version <a [routerLink]="['/animation-flickr-fixed']">animation flicker fixed</a>.
+        </p>
+    </md-card-content>
+</md-card>

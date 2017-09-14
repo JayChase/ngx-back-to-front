@@ -1,31 +1,31 @@
-<h1>ngx back to front (render location: {{renderLocation}})</h1>
-<p>
-    Examples of the issues that may occur when creating a seamless transationing from server rendered content to the client side.
-    To see the issues below remember to hard reload the page from the server after navigating to it.      
-</p>
-<ul>
-    <li>
-        <a [routerLink]="['/state-transfer-issue']">state transfer issue</a>
-    </li>
-    <li>
-        <a [routerLink]="['/first-page-issue']">first page issue</a>
-    </li>
-    <li>
-        <a [routerLink]="['/animation-flicker-issue']">animation flicker issue</a>
-    </li>
-</ul>
-<p>
-    Here are the fixes for each issue.
-</p>
-<ul>
-    <li>
-        <a [routerLink]="['/state-transfer-fixed']">state transfer fixed</a>
-    </li>
-    <li>
-        <a [routerLink]="['/first-page-fixed']">first page fixed</a>
-    </li>
-    <li>
-        <a [routerLink]="['/animation-flicker-fixed']">animation flicker fixed</a>
-    </li>
-</ul>
-<router-outlet></router-outlet>
+<md-sidenav-container fullscreen>
+    <md-sidenav #sidenav mode="push" class="app-sidenav">
+        <md-toolbar color="primary">
+            <!--future svg to go here-->
+            <span class="toolbar-filler"></span>
+            <button md-icon-button (click)="sidenav.toggle()" class="md-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+              <md-icon aria-label="Menu" class="material-icons">close</md-icon>
+            </button>
+        </md-toolbar>
+        <md-nav-list>
+            <a md-list-item class="sidenav-link" [routerLink]="['/state-transfer-issue']" (click)="sidenav.toggle()">               
+                <span class="title" md-line>state transfer issue</span>
+            </a>
+            <a md-list-item class="sidenav-link" [routerLink]="['/first-page-issue']" (click)="sidenav.toggle()">               
+                <span class="title" md-line>first page issue</span>
+            </a>
+            <a md-list-item class="sidenav-link" [routerLink]="['/animation-flicker-issue']" (click)="sidenav.toggle()">               
+                <span class="title" md-line>animation flicker issue</span>
+            </a>
+        </md-nav-list>
+    </md-sidenav>
+    <md-toolbar id="appToolbar" color="primary">
+        <button md-icon-button (click)="sidenav.toggle()" class="md-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+            <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
+          </button>
+        <h1 class="component-title">
+            ngx back to front (render location: {{renderLocation}})
+        </h1>
+    </md-toolbar>
+    <router-outlet></router-outlet>
+</md-sidenav-container>

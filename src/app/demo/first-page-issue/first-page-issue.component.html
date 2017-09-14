@@ -1,3 +1,22 @@
-<p>
-  first-page-issue works!
-</p>
+<md-card>
+  <md-card-title>first page issue</md-card-title>
+  <md-card-content>
+    <p>
+      The behaviour of a component might have to change dependent on whether it is the first component loaded that transitions
+      from server to client. For example if the component normally shows a wait spinner until it is ready that will cause
+      a flicker when transitioning.
+    </p>
+    <p>
+        See the fixed version <a [routerLink]="['/first-page-fixed']">first page fixed</a>.
+    </p>
+    <p>
+      Waiting for a slow task...
+    </p>
+    <md-progress-spinner mode="indeterminate" *ngIf="busy; else response"></md-progress-spinner>
+    <ng-template #response>
+      <p>
+        Slow task has finished and content can be shown.
+      </p>
+    </ng-template>
+  </md-card-content>
+</md-card>
