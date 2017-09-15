@@ -1,5 +1,4 @@
-import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, PLATFORM_ID, OnInit } from '@angular/core';
 import { TestService } from '../test.service';
 import { StateService } from '../../back-to-front/state.service';
 import 'rxjs/add/operator/delay';
@@ -13,7 +12,6 @@ export class StateTransferIssueComponent implements OnInit {
   post: any;
 
   constructor(
-    @Inject(PLATFORM_ID) public platform_id,
     private testService: TestService,
     private stateService: StateService
   ) {

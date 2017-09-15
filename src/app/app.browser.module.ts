@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppModule } from './app.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +9,6 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     AppModule,
-    BrowserModule,
     BrowserAnimationsModule,
     BackToFrontBrowserModule.forRoot()
   ],
