@@ -15,6 +15,11 @@ export class TestService {
     return this.httpClient.get('https://jsonplaceholder.typicode.com/photos/' + id);
   }
 
+  getPost(id: number): Observable<any> {
+    return this.httpClient.get('https://jsonplaceholder.typicode.com/posts/' + id);
+  }
+
+
   slowResponse(delay: number): Observable<string> {
     return Observable.of('test').delay(delay);
   }

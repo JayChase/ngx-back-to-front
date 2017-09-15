@@ -7,12 +7,12 @@
       a flicker when transitioning.
     </p>
     <p>
-        See the fixed version <a [routerLink]="['/first-page-fixed']">first page fixed</a>.
+        See the fixed version <a [routerLink]="['/first-page-fixed']">first page fixed</a>
     </p>
-    <p>
+    <p *ngIf="isBrowser">
       Waiting for a slow task...
     </p>
-    <md-progress-spinner mode="indeterminate" *ngIf="busy; else response"></md-progress-spinner>
+    <md-progress-spinner mode="indeterminate" *ngIf="isBrowser && busy; else response"></md-progress-spinner>
     <ng-template #response>
       <p>
         Slow task has finished and content can be shown.

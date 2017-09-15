@@ -2,14 +2,13 @@ import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestService } from '../test.service';
 import { StateService } from '../../back-to-front/state.service';
-import 'rxjs/add/operator/delay';
 
 @Component({
-  selector: 'app-state-transfer-issue',
-  templateUrl: './state-transfer-issue.component.html',
-  styleUrls: ['./state-transfer-issue.component.scss']
+  selector: 'app-state-transfer-fixed',
+  templateUrl: './state-transfer-fixed.component.html',
+  styleUrls: ['./state-transfer-fixed.component.scss']
 })
-export class StateTransferIssueComponent implements OnInit {
+export class StateTransferFixedComponent implements OnInit {
   post: any;
 
   constructor(
@@ -17,18 +16,16 @@ export class StateTransferIssueComponent implements OnInit {
     private testService: TestService,
     private stateService: StateService
   ) {
-    // to create this issue clear the cache before the service call and put a delay on the resonse to make it obvious
-    this.stateService.get('https://jsonplaceholder.typicode.com/posts/1');
+
   }
 
   ngOnInit() {
     this.testService.getPost(1)
-      .delay(2000)
       .subscribe(result => {
         this.post = result;
-
       }, error => {
         console.log(error);
       });
   }
 }
+

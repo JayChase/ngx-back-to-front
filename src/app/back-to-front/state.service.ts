@@ -12,7 +12,7 @@ export abstract class StateService {
   ) {
   }
 
-  abstract get(key: string): string;
+  abstract get(key: string, persist?: boolean): string;
   abstract set(key: string, value: any): void;
 }
 

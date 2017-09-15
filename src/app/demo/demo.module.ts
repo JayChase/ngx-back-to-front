@@ -9,6 +9,10 @@ import { AnimationFlickerIssueComponent } from './animation-flicker-issue/animat
 
 import { TestService } from './test.service';
 
+import { StateTransferFixedComponent } from './state-transfer-fixed/state-transfer-fixed.component';
+import { FirstPageFixedComponent } from './first-page-fixed/first-page-fixed.component';
+import { AnimationFlickerFixedComponent } from './animation-flicker-fixed/animation-flicker-fixed.component';
+
 
 @NgModule({
   imports: [
@@ -20,7 +24,10 @@ import { TestService } from './test.service';
   declarations: [
     StateTransferIssueComponent,
     FirstPageIssueComponent,
-    AnimationFlickerIssueComponent
+    AnimationFlickerIssueComponent,
+    StateTransferFixedComponent,
+    FirstPageFixedComponent,
+    AnimationFlickerFixedComponent
   ],
   providers: [
   ]

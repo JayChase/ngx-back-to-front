@@ -22,8 +22,9 @@ import { AppComponent } from './app.component';
     MdListModule,
     MdCardModule,
     DemoModule,
-    RouterModule.forRoot([]),
-
+    RouterModule.forRoot([], {
+      initialNavigation: 'enabled'
+    })
   ],
   providers: [
     TestService

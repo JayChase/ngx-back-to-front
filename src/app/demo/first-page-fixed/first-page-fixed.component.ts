@@ -3,24 +3,23 @@ import { TestService } from '../test.service';
 import { UniversalService } from '../../back-to-front/universal.service';
 
 @Component({
-  selector: 'app-first-page-issue',
-  templateUrl: './first-page-issue.component.html',
-  styleUrls: ['./first-page-issue.component.scss']
+  selector: 'app-first-page-fixed',
+  templateUrl: './first-page-fixed.component.html',
+  styleUrls: ['./first-page-fixed.component.scss']
 })
-export class FirstPageIssueComponent implements OnInit {
+export class FirstPageFixedComponent implements OnInit {
   busy: boolean;
+  isFirstLoad: boolean;
   isBrowser: boolean;
 
   constructor(
     private testService: TestService,
     private universalService: UniversalService
-
   ) { }
 
   ngOnInit() {
-    // don't show the wait elements on the server
     this.isBrowser = this.universalService.isBrowser();
-
+    this.isFirstLoad = this.universalService.isFirstRouteLoad();
     this.busy = true;
 
     this.testService.slowResponse(4000)
