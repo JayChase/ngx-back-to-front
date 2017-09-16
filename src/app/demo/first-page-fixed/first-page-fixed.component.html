@@ -6,13 +6,13 @@
       and message. (they wil still show is navigation is on the client side)
     </p>
     <p *ngIf="isBrowser && !isFirstLoad">
-        Waiting for a slow task...
+      Waiting for a slow task...
+    </p>
+    <md-progress-spinner mode="indeterminate" *ngIf="isBrowser && busy && !isFirstLoad; else response"></md-progress-spinner>
+    <ng-template #response>
+      <p>
+        Slow task has finished and content can be shown.
       </p>
-      <md-progress-spinner mode="indeterminate" *ngIf="isBrowser && busy && !isFirstLoad; else response"></md-progress-spinner>
-      <ng-template #response>
-        <p>
-          Slow task has finished and content can be shown.
-        </p>
-      </ng-template>
+    </ng-template>
   </md-card-content>
 </md-card>

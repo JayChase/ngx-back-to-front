@@ -1,6 +1,6 @@
 {
   "name": "ngx-back-to-front",
-  "version": "0.0.3-alpha",
+  "version": "0.0.4-alpha",
   "license": "MIT",
   "files": [
     "lib"

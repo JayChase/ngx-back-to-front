@@ -29,13 +29,23 @@ export class UniversalService {
       });
   }
 
+  /**
+ * Returns true is the code is running on browser, false for every other environment
+ */
   isBrowser(): boolean {
     return isPlatformBrowser(this.platform_id);
   }
 
-  isFirstRouteLoad(): boolean {
+  /**
+ * Check if the current route is the first route that was loaded (so the components template has been statically rendered)
+ * @param reset if the result is true reset to return false for all future calls
+ */
+  isFirstRouteLoad(reset: boolean = false): boolean {
     if (this.firstRoute === this.currentRoute) {
-      this.firstRoute = undefined;
+      if (reset) {
+        this.firstRoute = undefined;
+      }
+
       return true;
     } else {
       return false;
