@@ -34,7 +34,7 @@ export class AnimationFlickerFixedComponent implements OnInit {
   state: string | undefined;
 
   ngOnInit() {
-    if (!this.universalService.isFirstRouteLoad()) {
+    if (!this.universalService.isFirstRouteLoaded()) {
       console.log('state we are in');
       this.state = 'in';
     }

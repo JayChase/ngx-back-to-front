@@ -1,24 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
-import { TestService } from './test.service';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  const mockTestService: any = {
-    getPhoto: (id) => { },
-    test: () => { }
-  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
-      ],
-      providers: [
-        {
-          provide: TestService,
-          useValue: mockTestService
-        }
       ]
     }).compileComponents();
   }));

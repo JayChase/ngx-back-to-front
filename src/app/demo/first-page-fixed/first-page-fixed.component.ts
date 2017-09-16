@@ -19,7 +19,7 @@ export class FirstPageFixedComponent implements OnInit {
 
   ngOnInit() {
     this.isBrowser = this.universalService.isBrowser();
-    this.isFirstLoad = this.universalService.isFirstRouteLoad();
+    this.isFirstLoad = this.universalService.isFirstRouteLoaded();
     this.busy = true;
 
     this.testService.slowResponse(4000)

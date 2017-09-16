@@ -40,7 +40,7 @@ export class UniversalService {
  * Check if the current route is the first route that was loaded (so the components template has been statically rendered)
  * @param reset if the result is true reset to return false for all future calls
  */
-  isFirstRouteLoad(reset: boolean = false): boolean {
+  isFirstRouteLoaded(reset: boolean = false): boolean {
     if (this.firstRoute === this.currentRoute) {
       if (reset) {
         this.firstRoute = undefined;
